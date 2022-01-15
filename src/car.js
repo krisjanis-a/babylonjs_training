@@ -1,25 +1,20 @@
-const canvas = document.getElementById("renderCanvas"); // Get the canvas element
-const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
-
-const createScene = () => {
-  const scene = new BABYLON.Scene(engine);
-
-  const camera = new BABYLON.ArcRotateCamera(
-    "camera",
-    -Math.PI / 2,
-    Math.PI / 2.5,
-    3,
-    new BABYLON.Vector3(0, 0, 0)
-  );
-  camera.attachControl(canvas, true);
-  const light1 = new BABYLON.HemisphericLight(
-    "light",
-    new BABYLON.Vector3(0, 1, 1)
-  );
-  const light2 = new BABYLON.HemisphericLight(
-    "light",
-    new BABYLON.Vector3(0, -1, -1)
-  );
+const createCar = () => {
+  // const camera = new BABYLON.ArcRotateCamera(
+  //   "camera",
+  //   -Math.PI / 2,
+  //   Math.PI / 2.5,
+  //   3,
+  //   new BABYLON.Vector3(0, 0, 0)
+  // );
+  // camera.attachControl(canvas, true);
+  // const light1 = new BABYLON.HemisphericLight(
+  //   "light",
+  //   new BABYLON.Vector3(0, 1, 1)
+  // );
+  // const light2 = new BABYLON.HemisphericLight(
+  //   "light",
+  //   new BABYLON.Vector3(0, -1, -1)
+  // );
 
   //base
   const outline = [
@@ -43,8 +38,6 @@ const createScene = () => {
   outline.push(new BABYLON.Vector3(-0.4, 0, 0.1));
 
   //back formed automatically
-
-  //   const shape = BABYLON.MeshBuilder.CreateLines("lines", { points: outline });
 
   const faceUV = [];
   faceUV[0] = new BABYLON.Vector4(0, 0.5, 0.38, 1);
@@ -142,15 +135,4 @@ const createScene = () => {
   return scene;
 };
 
-// Render the scene
-const scene = createScene(); //Call the createScene function
-
-// Register a render loop to repeatedly render the scene
-engine.runRenderLoop(function () {
-  scene.render();
-});
-
-// Watch for browser/canvas resize events
-window.addEventListener("resize", function () {
-  engine.resize();
-});
+export default createCar;
