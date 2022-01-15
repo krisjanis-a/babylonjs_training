@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/krisjanis-a/babylonjs_training#readme",
   "dependencies": {
-    "babylonjs-viewer": "^4.2.1"
+    "babylonjs-viewer": "^4.2.1",
+    "earcut": "^2.2.3"
   }
 }
