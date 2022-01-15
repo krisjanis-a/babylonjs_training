@@ -8,7 +8,7 @@ const buildBase = (type, width, height, depth) => {
   // Set parameters depending on house type
   if (type === "CUBE") {
     // texture
-    houseMat.diffuseTexture = new BABYLON.Texture("./cubehouse.png");
+    houseMat.diffuseTexture = new BABYLON.Texture("./src/assets/cubehouse.png");
 
     // FaceUV
     houseFaceUV[0] = new BABYLON.Vector4(0.5, 0, 0.75, 1.0); //rear face
@@ -19,7 +19,7 @@ const buildBase = (type, width, height, depth) => {
   if (type === "SEMI_DETACHED") {
     // texture
     houseMat.diffuseTexture = new BABYLON.Texture(
-      "./cubehouse_semi_detached.png"
+      "./src/assets/cubehouse_semi_detached.png"
     );
 
     // FaceUV

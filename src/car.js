@@ -1,21 +1,7 @@
-const createCar = () => {
-  // const camera = new BABYLON.ArcRotateCamera(
-  //   "camera",
-  //   -Math.PI / 2,
-  //   Math.PI / 2.5,
-  //   3,
-  //   new BABYLON.Vector3(0, 0, 0)
-  // );
-  // camera.attachControl(canvas, true);
-  // const light1 = new BABYLON.HemisphericLight(
-  //   "light",
-  //   new BABYLON.Vector3(0, 1, 1)
-  // );
-  // const light2 = new BABYLON.HemisphericLight(
-  //   "light",
-  //   new BABYLON.Vector3(0, -1, -1)
-  // );
+// import earcut from "earcut";
+import * as earcut from "earcut";
 
+const createCar = (scene) => {
   //base
   const outline = [
     new BABYLON.Vector3(-0.4, 0, -0.1),
@@ -50,17 +36,22 @@ const createCar = () => {
   wheelUV[2] = new BABYLON.Vector4(0, 0, 1, 1);
 
   const carMat = new BABYLON.StandardMaterial("carMat");
-  carMat.diffuseTexture = new BABYLON.Texture("./car.png");
+  carMat.diffuseTexture = new BABYLON.Texture("./src/assets/car.png");
 
   const wheelMat = new BABYLON.StandardMaterial("wheelMat");
-  wheelMat.diffuseTexture = new BABYLON.Texture("./wheel.png");
+  wheelMat.diffuseTexture = new BABYLON.Texture("./src/assets/wheel.png");
 
-  const car = BABYLON.MeshBuilder.ExtrudePolygon("car", {
-    shape: outline,
-    depth: 0.25,
-    faceUV: faceUV,
-    wrap: true,
-  });
+  const car = BABYLON.MeshBuilder.ExtrudePolygon(
+    "car",
+    {
+      shape: outline,
+      depth: 0.25,
+      faceUV: faceUV,
+      wrap: true,
+    },
+    scene,
+    earcut
+  );
 
   car.material = carMat;
 

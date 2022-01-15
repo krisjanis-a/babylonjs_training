@@ -1,6 +1,6 @@
-import createCar from "./car";
-import buildHouse from "./house";
-import buildGround from "./ground";
+import createCar from "./car.js";
+import buildHouse from "./house.js";
+import buildGround from "./ground.js";
 
 const canvas = document.getElementById("renderCanvas"); // Get the canvas element
 const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
@@ -30,6 +30,8 @@ const createWorld = function () {
     "light",
     new BABYLON.Vector3(1, 1, 0)
   );
+
+  createCar(scene);
 
   return scene;
 };
@@ -63,8 +65,6 @@ const buildDwellings = () => {
     houses[i].position.x = places[i][2];
     houses[i].position.z = places[i][3];
   }
-
-  createCar();
 };
 
 const addHouseToScene = (houseType) => {
